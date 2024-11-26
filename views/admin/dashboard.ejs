@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') -%>
+<%- include('../partials/navbar-admin.ejs') -%>
+
+<div class="container">
+    <div class="d-flex justify-content-around mt-5">
+<h2>Posts</h2>
+<a href="/add-post" class="text-dark">+ Add New</a>
+</div>
+<ul class="" style="list-style: none;">
+  
+    <% posts.forEach(post => { %>
+     
+      <li class="d-flex justify-content-between mt-5">
+        <a href="/post/<%= post._id %>">
+          <%= post.title %> &nearr;
+        </a>
+        <div>
+          <a href="/edit-post/<%= post._id %>" class="btn  btn-primary">Edit</a>
+  
+          <a href="/delete-post/<%= post._id %>" class="btn btn-danger">Delete</a>
+  
+  
+        </div>
+  
+      </li>
+  
+    <% }) %>
+  </ul>
+</div>
+<%- include('../partials/footer.ejs') -%>

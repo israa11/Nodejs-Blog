@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs') -%>
+<%- include('../partials/navbar.ejs') -%>
+
+<div class="container mt-3  pt-5 text-center">
+    <h1 class="author__heading">Hi, I am Israa.</h1>
+    <p class="author__body">Web developer and content container.</p>
+    <img src="/images/image1.jpg" alt="" class="" width="981" height="528">
+  
+  
+  
+  
+  <section class="mb-3">
+    <h2 class="pt-5 text-start" >Latest Posts</h2>
+
+    <ul class="mb-5" style="list-style: none;">
+  
+      <% posts.forEach(post => { %>
+        <li class="mt-3">
+          <a href="/post/<%= post._id %>" class="d-flex justify-content-between text-dark link-underline-light">
+            <span><%= post.title %></span>
+            <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+          </a>
+        </li>
+        <hr>
+      <% }) %>
+    
+     
+    </ul>
+     <% if (current > 1) { %> 
+      <a href="/?page=<%= current - 1 %>" class="text-dark">Previous</a> 
+      <% } %> <% if (current < pages) { %> 
+        <a href="/?page=<%= current + 1 %>"  class="text-dark ">Next</a> 
+        <% } %> 
+   
+  
+  </section>
+</div>
+<%- include('../partials/footer.ejs') -%>
